@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Handling Example</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #777;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- change 이벤트 걸기 (방법은 자유 , 결과는 console로 실행되는것만 확인) -->
+    <select  id="city">
+        <!--onchange="sel()"-->
+        <option value="서울시">서울시</option>
+        <option value="경기도">경기도</option>
+        <option value="부산시">부산시</option>
+    </select>
+
+    <!-- focus, blur 이벤트 걸기 -->
+    이름: <input type="text" id="nameInput">
+
+    <!-- mouseenter, mouseout 이벤트 걸기 -->
+    <div class="box" id="mouse">x</div>
+    <div style="width: 100px; height: 100px; border: 1px solid #777;" id="box">
+
+    </div>
+
+    
+    
+</body>
+<script>
+
+    // function sel() {
+    //     console.log('change 이벤트 실행');
+    // } 
+    // //<!--onchange="sel()"--> 사용시
+    var city = document.getElementById('city');
+    city.addEventListener('change', function () {
+        console.log('지역 변경 : ' , this.value);
+    });
+
+    
+
+    var x = document.getElementById('name');
+    x.onfocus = function(){
+        console.log('포커스 동작');
+    }
+    
+    x.onblur = function(){
+        console.log('포커스 아웃');
+    }
+
+
+    var box = document.getElementById('box');
+    box.addEventListener('mouseenter',function () {
+        console.log('마우스엔터');
+    })
+
+    box.addEventListener('mouseout',function () {
+        console.log('마우스 아웃');
+    })
+
+   
+</script>
+</html>
