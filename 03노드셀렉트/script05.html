@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>태그 사이에 값을 넣는 거는 innerHTML = 대입할 값</h3>
+    <h1 class="title">단어를 선택하세요</h1>
+    <select class="sel" onchange="update()">
+        <option value="1">선택</option>
+        <option value="2">Hello</option>
+        <option value="3">나</option>
+        <option value="4">메로</option>
+    </select>
+
+    <script>
+        var title = document.querySelector(".title");
+        var sel = document.querySelector(".sel");
+
+        sel.addEventListener('change',function(){
+            if(sel.value == '1'){
+                title.innerHTML = '단어를 선택하세요';
+            }else if(sel.value == '2'){
+                title.innerHTML = 'Hello';
+            }else if(sel.value == '3'){
+                title.innerHTML = '나에요';
+            }else if(sel.value == '4'){
+                title.innerHTML = '메로에요';
+            }
+        })
+
+
+        // function update() {
+        //     var selectElement = document.querySelector(".my-select");
+        //     var displayElement = document.getElementById("display");
+        //     displayElement.innerHTML = selectElement.value;
+        // }
+    </script>
+</body>
+</html>

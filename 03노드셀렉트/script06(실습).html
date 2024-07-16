@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>수량증가 InnerHTMl value 속성을 이용해서 카운트 처리 하세요</h3>
+    <input class="num" type="number" value="0" readonly>
+    <button class="plus">증가</button>
+    <button class="minus">감소</button>
+    
+    <script>
+         var title = document.querySelector(".num");
+         var plus = document.querySelector(".plus");
+         var minus = document.querySelector(".minus");
+
+         plus.addEventListener('click',function(){
+            title.value++;
+         })
+         minus.addEventListener('click',function(){
+            if (title.value > 0) {
+                title.value--;
+         } else{
+            alert('0보다 작을 수 없습니다');
+         }
+         });
+
+        
+
+    </script>
+
+</body>
+</html>

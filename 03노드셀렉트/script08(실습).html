@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <pre>
+        아이디값이 변경되면 예시처럼 구현
+        힌트 : keyup이벤트
+        문자열 길이 : length
+    </pre>
+
+    아이디:<input class="id" type="text" name="id" onchange="colortype(this)">
+    <span class="idMsg"></span>
+
+
+    <style>
+        input:focus{
+            outline: none; 
+            /* 포커스시 기본 보더 x */
+        }
+    </style>
+
+    <script>
+        var id = document.querySelector("input[name=id]");
+        var idMsg = document.querySelector(".idMsg");
+
+        id.addEventListener('keyup',function(){ //keyup = 값이 변경될 때 호출되는 함수
+            var idx = id.value;
+            
+            if(idx.length<4){
+                id.style.border = '1px solid red'
+                idMsg.innerHTML = '아이디는 4글자 이상이어야 합니다.'
+            }else{
+                id.style.border = '1px solid green'
+                idMsg.innerHTML = '참 잘했어요';
+            }
+
+        });
+
+
+
+       
+        
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
