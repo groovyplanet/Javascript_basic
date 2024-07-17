@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>할일 목록</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+        }
+
+        h3 {
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 5px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            background-color: rgb(244, 157, 0);
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        #box {
+            margin: 20px;
+            font-size: 1.2em;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 5px;
+            margin: 5px;
+            border: 1px solid black;
+            background-color: #eee;
+            border-radius: 3px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .buttons {
+            display: flex;
+        }
+
+        .buttons button {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>할일 목록 만들기</h3>
+
+    <input type="text" placeholder="이름을 입력하세요" id="name">
+    <button type="button" id="btn">확인</button> <br>
+
+    <input type="text" placeholder="당신의 할일을 적으세요" id="work">
+    <button type="button" id="btn2">확인</button>
+
+    <div id="box">
+        <p id="pname"></p>
+    </div>
+
+    <ul id="worklist">
+
+    </ul>
+
+    <script>
+        var btn = document.querySelector("#btn");
+        var list = document.querySelector("#box");
+        btn.onclick = function () {
+            var name = document.getElementById("name");
+            var pname = document.getElementById("pname");
+            var str = "";
+            if(name.value ==""){
+                alert('값이 없으면 추가할 수 없습니다.')
+                name.style.border="1px solid red";
+     
+            }else{
+                str += name.value + "님 안녕하세요";
+            pname.innerHTML = str;
+
+            if (str != "") {
+                btn.remove();
+                name.remove();
+            }
+            }
+            
+        }
+
+        var btn2 = document.querySelector("#btn2");
+        btn2.onclick = function () {
+            var work = document.getElementById("work");
+            var worklist = document.getElementById("worklist");
+            var str = "";
+            if(work.value ==""){
+                alert('값이 없으면 추가할 수 없습니다.')
+                work.style.border="1px solid red";
+     
+            }else{
+            str += work.value;
+            var todo = document.createElement('li');
+            todo.innerHTML = str + '<div class="buttons"><button onclick="up(this)">↑</button><button onclick="down(this)">↓</button></div>';
+            worklist.appendChild(todo);
+            work.value = ""; 
+        }
+            
+
+
+        }
+
+        function down(node) {
+            var current = node.parentElement.parentElement; 
+            var next = current.nextElementSibling;
+
+            if (next != null) {
+                current.parentElement.insertBefore(next, current);
+            } else {
+                alert('마지막 항목입니다');
+            }
+        }
+
+        function up(node) {
+            var current = node.parentElement.parentElement; 
+            var prev = current.previousElementSibling;
+
+            if (prev != null) {
+                current.parentElement.insertBefore(current, prev);
+            } else {
+                alert('첫 번째 항목입니다');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
