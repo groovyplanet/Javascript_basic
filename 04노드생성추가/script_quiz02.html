@@ -82,7 +82,9 @@
     <button type="button" id="btn2">확인</button>
 
     <div id="box">
-        <p id="pname"></p>
+        <p id="pname">
+
+        </p>
     </div>
 
     <ul id="worklist">
@@ -124,7 +126,7 @@
             }else{
             str += work.value;
             var todo = document.createElement('li');
-            todo.innerHTML = str + '<div class="buttons"><button onclick="up(this)">↑</button><button onclick="down(this)">↓</button></div>';
+            todo.innerHTML = str + '<div class="buttons"><button onclick="X(this)">X</button><div class="buttons"><button onclick="up(this)">↑</button><button onclick="down(this)">↓</button></div>';
             worklist.appendChild(todo);
             work.value = ""; 
         }
@@ -137,22 +139,37 @@
             var current = node.parentElement.parentElement; 
             var next = current.nextElementSibling;
 
-            if (next != null) {
+            if ( next!=null && confirm("이동 시키는 게 맞습니까?")) {
                 current.parentElement.insertBefore(next, current);
-            } else {
+            } 
+
+            if(next==null){
                 alert('마지막 항목입니다');
             }
+
+            
+            
         }
 
         function up(node) {
             var current = node.parentElement.parentElement; 
             var prev = current.previousElementSibling;
 
-            if (prev != null) {
+            if (prev!=null && confirm("이동 시키는 게 맞습니까?")) {
                 current.parentElement.insertBefore(current, prev);
-            } else {
+             
+            } 
+
+            if(prev==null) {
                 alert('첫 번째 항목입니다');
+                return;
             }
+
+            
+        }
+        function X(node){
+            var current = node.parentElement.parentElement; 
+            current.remove();
         }
     </script>
 

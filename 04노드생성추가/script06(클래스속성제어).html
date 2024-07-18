@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .btn.active{
+            color : red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h3>하나의 버튼으로 여러 작업을 동시에 한다.(토글버튼)</h3>
+    <button type="button" class="btn btn-default" id="btn">클래스 속성 제어하기</button>
+</body>
+<script>
+    var btn= document.getElementById("btn");
+    btn.onclick = function(){
+        //btn.type
+        //btn.id
+        console.dir(btn.className);
+        console.dir(btn.classList);
+
+        // //클래스 추가
+        // btn.classList.add("active");
+
+        // //클래스 제거
+        // btn.classList.remove("active");
+
+        // //클래스 확인 여부
+        // console.log(btn.classList.contains("btn"));
+
+        // if(btn.classList.contains("active")){
+        //     btn.classList.remove("active");
+        // }else{
+        //     btn.classList.add("active");
+        // }
+
+        //2nd
+        btn.classList.toggle("active"); //있으면 remove 없으면 add
+    }
+</script>
+</html>
