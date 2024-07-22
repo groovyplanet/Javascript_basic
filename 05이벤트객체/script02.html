@@ -20,12 +20,12 @@
         var box = document.querySelector(".box");
         var result = document.querySelector(".result");
         box.onclick=function(){
-            // console.log('이벤트 동작 됨 !'); // 이벤트 위임
-            // console.log(event); //이벤트의 대한 정보
-            // console.log(event.target);//이벤트가 동작한 태그
-            // console.log(event.currentTarget); // 실제 이벤트가 걸려있는 태그
+            console.log('이벤트 동작 됨 !'); // 이벤트 위임
+            console.log(event); //이벤트의 대한 정보
+            console.log(event.target);//이벤트가 동작한 태그
+            console.log(event.currentTarget); // 실제 이벤트가 걸려있는 태그
 
-            if(event.target.tagName == "UL") return;
+            if(event.target.tagName != "LI") return;
             
             result.innerHTML = event.target.innerHTML;
 
