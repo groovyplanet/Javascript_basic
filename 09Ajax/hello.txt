@@ -1,0 +1,1 @@
+name은 홍길동,  age는 20 , addresss는 서울
